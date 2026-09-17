@@ -58,14 +58,59 @@ img{display:block;max-width:100%;height:auto}
     </a>
 
     <nav class="main-nav" aria-label="Primary">
-      <a href="index.html" aria-current="page">Home</a>
-      <a href="photography/">Photography</a>
-      <a href="cinematography/">Film</a>
-      <a href="elopements-fiji/">Elopements</a>
-      <a href="family-couple-photographer-fiji/">Family Photography</a>
-      <a href="dj-services/">DJ Services</a>
-      <a href="about-us/">About Us</a>
-      <a href="contact/">Contact Us</a>
+      <a class="nav-link" href="index.html" aria-current="page">Home</a>
+
+      <div class="nav-group">
+        <button class="nav-link nav-trigger" type="button" aria-expanded="false" aria-controls="nav-services">
+          Services <svg class="nav-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5Z"/></svg>
+        </button>
+        <div class="nav-panel" id="nav-services">
+          <p class="nav-panel-title">What we photograph</p>
+          <ul>
+            <li><a href="photography/"><b>Photography</b><span>Full-day island wedding coverage</span></a></li>
+            <li><a href="cinematography/"><b>Film</b><span>Highlight films &amp; full-day videography</span></a></li>
+            <li><a href="elopements-fiji/"><b>Elopements</b><span>Just the two of you</span></a></li>
+            <li><a href="family-couple-photographer-fiji/"><b>Family Photography</b><span>Family &amp; couple sessions</span></a></li>
+            <li><a href="dj-services/"><b>DJ Services</b><span>Music &amp; MC for your reception</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="nav-group">
+        <button class="nav-link nav-trigger" type="button" aria-expanded="false" aria-controls="nav-albums">
+          Albums <svg class="nav-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5Z"/></svg>
+        </button>
+        <div class="nav-panel nav-panel--albums" id="nav-albums">
+          <p class="nav-panel-title">Weddings by resort</p>
+          <ul>
+            <!-- NAV-ALBUMS:START -->
+            <li><a href="sofitel-fiji-weddings/"><b>Sofitel Fiji Wedding</b><span>Coral Coast</span></a></li>
+            <li><a href="marriott-fiji-wedding/"><b>Marriott Fiji Wedding</b><span>Momi Bay</span></a></li>
+            <li><a href="musket-cover-fiji-wedding-photos-videoticzfiji/"><b>Musket Cove Fiji Wedding</b><span>Mamanuca Islands</span></a></li>
+            <li><a href="shangrilafijiweddingmegancullum"><b>Shangri-La Fijian Resort</b><span>Yanuca Island</span></a></li>
+            <li><a href="treasure-island-fiji-wedding-photography"><b>Treasure Island Wedding</b><span>Mamanuca Islands</span></a></li>
+            <li><a href="intercontinental-fiji-resort-wedding-priyanka-visha/"><b>InterContinental Fiji Wedding</b><span>Natadola Bay</span></a></li>
+            <!-- NAV-ALBUMS:END -->
+          </ul>
+          <a class="nav-panel-all" href="#albums">See all albums <span aria-hidden="true">&#8594;</span></a>
+        </div>
+      </div>
+
+      <div class="nav-group">
+        <button class="nav-link nav-trigger" type="button" aria-expanded="false" aria-controls="nav-guides">
+          Guides <svg class="nav-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5Z"/></svg>
+        </button>
+        <div class="nav-panel" id="nav-guides">
+          <p class="nav-panel-title">Planning your Fiji wedding</p>
+          <ul>
+            <li><a href="weddings-in-fiji-islands/"><b>Fiji Wedding Guide</b><span>Venues, seasons and planning</span></a></li>
+            <li><a href="blog-wedding-photographer-fiji/"><b>Choosing a Photographer</b><span>What to ask before you book</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <a class="nav-link" href="about-us/">About Us</a>
+      <a class="nav-link" href="contact/">Contact Us</a>
     </nav>
 
     <div class="masthead-actions">
@@ -82,14 +127,40 @@ img{display:block;max-width:100%;height:auto}
 <div class="menu-panel" id="menuPanel" hidden>
   <div class="shell menu-grid">
     <nav class="menu-links" aria-label="All pages">
-      <a href="index.html"><span>01</span>Home</a>
-      <a href="photography/"><span>02</span>Photography</a>
-      <a href="cinematography/"><span>03</span>Film</a>
-      <a href="elopements-fiji/"><span>04</span>Elopements</a>
-      <a href="family-couple-photographer-fiji/"><span>05</span>Family Photography</a>
-      <a href="dj-services/"><span>06</span>DJ Services</a>
-      <a href="about-us/"><span>07</span>About Us</a>
-      <a href="contact/"><span>08</span>Contact Us</a>
+      <a class="menu-top" href="index.html">Home</a>
+
+      <section class="menu-set">
+        <h2>Services</h2>
+        <a href="photography/">Photography</a>
+        <a href="cinematography/">Film</a>
+        <a href="elopements-fiji/">Elopements</a>
+        <a href="family-couple-photographer-fiji/">Family Photography</a>
+        <a href="dj-services/">DJ Services</a>
+      </section>
+
+      <section class="menu-set">
+        <h2>Albums</h2>
+        <!-- MENU-ALBUMS:START -->
+        <a href="sofitel-fiji-weddings/">Sofitel Fiji Wedding</a>
+        <a href="marriott-fiji-wedding/">Marriott Fiji Wedding</a>
+        <a href="musket-cover-fiji-wedding-photos-videoticzfiji/">Musket Cove Fiji Wedding</a>
+        <a href="shangrilafijiweddingmegancullum">Shangri-La Fijian Resort</a>
+        <a href="treasure-island-fiji-wedding-photography">Treasure Island Wedding</a>
+        <a href="intercontinental-fiji-resort-wedding-priyanka-visha/">InterContinental Fiji Wedding</a>
+        <!-- MENU-ALBUMS:END -->
+      </section>
+
+      <section class="menu-set">
+        <h2>Guides</h2>
+        <a href="weddings-in-fiji-islands/">Fiji Wedding Guide</a>
+        <a href="blog-wedding-photographer-fiji/">Choosing a Photographer</a>
+      </section>
+
+      <section class="menu-set">
+        <h2>Studio</h2>
+        <a href="about-us/">About Us</a>
+        <a href="contact/">Contact Us</a>
+      </section>
     </nav>
 
     <div class="menu-aside">
@@ -588,16 +659,20 @@ img{display:block;max-width:100%;height:auto}
     </div>
 
     <nav class="footer-col" aria-label="Quick links">
-      <h2>Quick Links</h2>
+      <h2>Services</h2>
       <ul>
-        <li><a href="index.html">Home</a></li>
         <li><a href="photography/">Photography</a></li>
         <li><a href="cinematography/">Film</a></li>
         <li><a href="elopements-fiji/">Elopements</a></li>
         <li><a href="family-couple-photographer-fiji/">Family Photography</a></li>
         <li><a href="dj-services/">DJ Services</a></li>
+      </ul>
+
+      <h2 class="footer-h2--spaced">Studio</h2>
+      <ul>
         <li><a href="about-us/">About Us</a></li>
         <li><a href="contact/">Contact Us</a></li>
+        <li><a href="weddings-in-fiji-islands/">Fiji Wedding Guide</a></li>
       </ul>
     </nav>
 

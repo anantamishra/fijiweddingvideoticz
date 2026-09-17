@@ -72,8 +72,29 @@ The album mosaic is the centre of the page: nine resort albums with wide and tal
 a "View album" affordance on hover, and a corner button that opens the cover full screen
 in a keyboard-navigable lightbox.
 
-Nav matches the site: Home, Photography, Film, Elopements, Family Photography, DJ Services,
-About Us, Contact Us — inline above 1100px, full-screen overlay below.
+### Menu structure
+
+Eight flat links became six top-level items, three of them grouped:
+
+```
+Home
+Services ▾    Photography · Film · Elopements · Family Photography · DJ Services
+Albums  ▾     one entry per resort, generated from data/albums.json
+Guides  ▾     Fiji Wedding Guide · Choosing a Photographer
+About Us
+Contact Us
+```
+
+The Albums menu is deduped by resort, so the three Sofitel albums and two Musket Cove
+albums appear once each — six entries from nine albums, rebuilt by `build-albums.py`
+along with the grid.
+
+Guides brings back two pages that exist on the site but had dropped out of the menu.
+Delete that group from `index.html` if you would rather leave them out.
+
+Dropdowns open on hover on desktop, on click or keyboard anywhere, and close on Escape,
+click-outside or focus leaving the group. Below 1100px the whole thing becomes a
+full-screen overlay with the same groups as headed sections.
 
 Dark mode ships via `prefers-color-scheme`; motion is disabled under
 `prefers-reduced-motion`.

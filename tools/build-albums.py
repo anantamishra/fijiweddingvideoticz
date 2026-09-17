@@ -14,8 +14,9 @@ everything outside those markers is left untouched.
 """
 import json, os, re, sys
 
-START = "<!-- ALBUMS:START -->"
-END = "<!-- ALBUMS:END -->"
+GRID = ("<!-- ALBUMS:START -->", "<!-- ALBUMS:END -->")
+NAV = ("<!-- NAV-ALBUMS:START -->", "<!-- NAV-ALBUMS:END -->")
+MENU = ("<!-- MENU-ALBUMS:START -->", "<!-- MENU-ALBUMS:END -->")
 SIZE_CLASS = {"wide": " tile--wide", "tall": " tile--tall", "normal": ""}
 
 
@@ -59,22 +60,54 @@ def tile(album):
         </article>"""
 
 
-def main():
-    albums = json.load(open("data/albums.json"))["albums"]
-    html = open("index.html", encoding="utf-8").read()
+def by_resort(albums):
+    """One entry per resort for the menus — several albums share a venue."""
+    seen, unique = set(), []
+    for a in albums:
+        if a["title"] in seen:
+            continue
+        seen.add(a["title"])
+        unique.append(a)
+    return unique
 
-    if START not in html or END not in html:
-        raise SystemExit("index.html is missing the ALBUMS markers")
 
-    grid = "\n".join(tile(a) for a in albums)
-    new = re.sub(
-        re.escape(START) + r".*?" + re.escape(END),
-        f"{START}\n{grid}\n        {END}",
+def nav_items(albums):
+    return "\n".join(
+        f'            <li><a href="{a["href"]}"><b>{a["title"]}</b>'
+        f'<span>{a["location"]}</span></a></li>'
+        for a in albums
+    )
+
+
+def menu_items(albums):
+    return "\n".join(
+        f'        <a href="{a["href"]}">{a["title"]}</a>' for a in albums
+    )
+
+
+def splice(html, markers, body, indent):
+    start, end = markers
+    if start not in html or end not in html:
+        raise SystemExit(f"index.html is missing the {start} marker")
+    return re.sub(
+        re.escape(start) + r".*?" + re.escape(end),
+        lambda _: f"{start}\n{body}\n{indent}{end}",
         html,
         flags=re.S,
     )
-    open("index.html", "w", encoding="utf-8").write(new)
-    print(f"rebuilt {len(albums)} album tiles")
+
+
+def main():
+    albums = json.load(open("data/albums.json"))["albums"]
+    resorts = by_resort(albums)
+    html = open("index.html", encoding="utf-8").read()
+
+    html = splice(html, GRID, "\n".join(tile(a) for a in albums), " " * 8)
+    html = splice(html, NAV, nav_items(resorts), " " * 12)
+    html = splice(html, MENU, menu_items(resorts), " " * 8)
+
+    open("index.html", "w", encoding="utf-8").write(html)
+    print(f"rebuilt {len(albums)} album tiles and {len(resorts)} resort menu entries")
 
 
 if __name__ == "__main__":

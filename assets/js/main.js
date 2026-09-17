@@ -32,6 +32,54 @@
   window.addEventListener('resize', onScroll);
   onScroll();
 
+  /* ---------------- Primary nav dropdowns ---------------- */
+  var navGroups = Array.prototype.slice.call(document.querySelectorAll('.nav-group'));
+  var canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  function setGroup(group, open) {
+    group.setAttribute('data-open', open ? 'true' : 'false');
+    var trigger = group.querySelector('.nav-trigger');
+    if (trigger) trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
+  function closeGroups(except) {
+    navGroups.forEach(function (g) { if (g !== except) setGroup(g, false); });
+  }
+
+  navGroups.forEach(function (group) {
+    var trigger = group.querySelector('.nav-trigger');
+    if (!trigger) return;
+
+    setGroup(group, false);
+
+    trigger.addEventListener('click', function () {
+      var open = group.getAttribute('data-open') === 'true';
+      closeGroups(group);
+      setGroup(group, !open);
+    });
+
+    if (canHover) {
+      var leaveTimer = null;
+      group.addEventListener('mouseenter', function () {
+        window.clearTimeout(leaveTimer);
+        closeGroups(group);
+        setGroup(group, true);
+      });
+      group.addEventListener('mouseleave', function () {
+        leaveTimer = window.setTimeout(function () { setGroup(group, false); }, 160);
+      });
+    }
+
+    // A panel link taking focus keeps the panel open; leaving it closes.
+    group.addEventListener('focusout', function (e) {
+      if (!group.contains(e.relatedTarget)) setGroup(group, false);
+    });
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest || !e.target.closest('.nav-group')) closeGroups(null);
+  });
+
   /* ---------------- Menu overlay ---------------- */
   var menuBtn = document.getElementById('menuBtn');
   var menuPanel = document.getElementById('menuPanel');
@@ -218,6 +266,14 @@
     if (e.key === 'Escape') {
       if (lb && !lb.hidden) closeLb();
       else if (menuPanel && !menuPanel.hidden) closeMenu();
+      else {
+        var openGroup = document.querySelector('.nav-group[data-open="true"]');
+        if (openGroup) {
+          setGroup(openGroup, false);
+          var t = openGroup.querySelector('.nav-trigger');
+          if (t) t.focus();
+        }
+      }
     }
     if (lb && !lb.hidden) {
       if (e.key === 'ArrowRight') showShot(lbIndex + 1);
