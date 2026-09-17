@@ -110,12 +110,21 @@
   var lbIndex = 0;
   var lbOpener = null;
 
+  var lbAvif = document.getElementById('lbAvif');
+  var lbWebp = document.getElementById('lbWebp');
+
   function showShot(i) {
     lbIndex = (i + zooms.length) % zooms.length;
     var z = zooms[lbIndex];
-    lbImg.src = z.getAttribute('data-full');
-    lbImg.alt = z.getAttribute('data-caption') || '';
-    lbCap.textContent = z.getAttribute('data-caption') || '';
+    var slug = z.getAttribute('data-slug');
+    var caption = z.getAttribute('data-caption') || '';
+    var base = 'assets/img/gallery/' + slug;
+
+    lbAvif.srcset = base + '-1200.avif 1200w, ' + base + '-1800.avif 1800w';
+    lbWebp.srcset = base + '-1200.webp 1200w, ' + base + '-1800.webp 1800w';
+    lbImg.src = base + '-1200.jpg';
+    lbImg.alt = caption;
+    lbCap.textContent = caption;
   }
 
   function openLb(i, opener) {
@@ -215,6 +224,22 @@
       if (e.key === 'ArrowLeft') showShot(lbIndex - 1);
     }
   });
+
+  /* ---------------- Map: third-party frame only on request ---------------- */
+  var mapHolder = document.getElementById('mapHolder');
+
+  if (mapHolder) {
+    var mapBtn = mapHolder.querySelector('.map-load');
+    if (mapBtn) {
+      mapBtn.addEventListener('click', function () {
+        var frame = document.createElement('iframe');
+        frame.src = mapHolder.getAttribute('data-src');
+        frame.title = 'Coral Coast, Sigatoka, Fiji';
+        frame.loading = 'lazy';
+        mapHolder.replaceChildren(frame);
+      });
+    }
+  }
 
   /* ---------------- Enquiry form (static build: no backend) ---------------- */
   var form = document.querySelector('.enquire-form');

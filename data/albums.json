@@ -1,0 +1,78 @@
+{
+  "_comment": "Source of truth for the home-page album grid. Edit this, then run: python3 tools/build-albums.py",
+  "albums": [
+    {
+      "slug": "sofitel-reception-drone",
+      "title": "Sofitel Fiji Wedding",
+      "location": "Coral Coast",
+      "href": "sofitel-fiji-weddings/",
+      "alt": "Fireworks over a Sofitel Fiji wedding reception at night",
+      "size": "wide",
+      "feature": true
+    },
+    {
+      "slug": "sofitel-bronte-jan",
+      "title": "Sofitel Fiji Wedding",
+      "location": "Bronte & Jan",
+      "href": "sofitel-fiji-wedding-photos-bronte-jan/",
+      "alt": "Sofitel Fiji wedding photos of Bronte and Jan",
+      "size": "normal"
+    },
+    {
+      "slug": "marriott",
+      "title": "Marriott Fiji Wedding",
+      "location": "Momi Bay",
+      "href": "marriott-fiji-wedding/",
+      "alt": "Marriott Fiji Resort Momi Bay wedding photography",
+      "size": "normal"
+    },
+    {
+      "slug": "musket-cove-1",
+      "title": "Musket Cove Fiji Wedding",
+      "location": "Mamanuca Islands",
+      "href": "musket-cover-fiji-wedding-photos-videoticzfiji/",
+      "alt": "Musket Cove Fiji wedding photos by Videoticz Fiji",
+      "size": "normal"
+    },
+    {
+      "slug": "sofitel",
+      "title": "Sofitel Fiji Wedding",
+      "location": "Denarau",
+      "href": "sofitel-fiji-wedding/",
+      "alt": "Sofitel Fiji wedding photography",
+      "size": "tall"
+    },
+    {
+      "slug": "musket-cove-2",
+      "title": "Musket Cove Fiji Wedding",
+      "location": "Malolo Lailai",
+      "href": "musket-cove-fiji-wedding/",
+      "alt": "Musket Cove Fiji wedding photographer",
+      "size": "normal"
+    },
+    {
+      "slug": "shangrila",
+      "title": "Shangri-La Fijian Resort",
+      "location": "Yanuca Island",
+      "href": "shangrilafijiweddingmegancullum",
+      "alt": "Shangri-La Fijian Resort wedding of Megan and Cullum",
+      "size": "normal"
+    },
+    {
+      "slug": "treasure-island",
+      "title": "Treasure Island Wedding",
+      "location": "Mamanuca Islands",
+      "href": "treasure-island-fiji-wedding-photography",
+      "alt": "Treasure Island Fiji wedding photos by Videoticz Fiji",
+      "size": "normal"
+    },
+    {
+      "slug": "intercontinental",
+      "title": "InterContinental Fiji Wedding",
+      "location": "Natadola Bay",
+      "href": "intercontinental-fiji-resort-wedding-priyanka-visha/",
+      "alt": "InterContinental Fiji Resort wedding of Priyanka and Visha",
+      "size": "wide"
+    }
+  ]
+}

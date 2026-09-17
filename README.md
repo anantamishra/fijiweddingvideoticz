@@ -1,21 +1,39 @@
 # fijiweddingvideoticz — static home page
 
-A dependency-free static home page for
-[fijiweddingvideoticz.com](https://fijiweddingvideoticz.com/), built to replace the
-WordPress/Elementor original with a photography-led editorial layout.
-
-No framework, no build step, no plugins: one HTML file, one stylesheet, one script.
+A fast, dependency-free home page for
+[fijiweddingvideoticz.com](https://fijiweddingvideoticz.com/), built around the wedding
+albums. No framework, no build step for the page itself, no plugins.
 
 ## Files
 
 ```
-index.html               the page
-assets/css/style.css     design system, layout, responsive rules
-assets/js/main.js        menu, lightbox, film loader, slider, reveals, form
-assets/img/brand/        logo, AIPP accreditation, directory badges
-assets/img/gallery/      venue photography at 768 / 1024 / 1536 for srcset
-assets/img/film/         Vimeo poster frames
+index.html                  the page (album grid is generated — see below)
+data/albums.json            source of truth for the album grid
+tools/optimize-images.py    photo -> AVIF + WebP + JPEG at 4 widths
+tools/build-albums.py       regenerates the album grid from albums.json
+assets/css/style.css        design system, layout, responsive rules
+assets/css/fonts.css        self-hosted @font-face declarations
+assets/js/main.js           menu, lightbox, film loader, slider, reveals, form
+assets/fonts/               6 woff2 faces, latin subset
+assets/img/gallery/         album covers, 480/768/1200/1800
+assets/img/film/            Vimeo poster frames, 480/800
 ```
+
+## Adding a wedding album
+
+```bash
+# 1. drop the cover photo in a sources folder, named <slug>.jpg
+python3 tools/optimize-images.py ~/album-sources assets/img/gallery
+
+# 2. add the album to data/albums.json (slug, title, location, href, alt, size)
+# 3. regenerate the grid
+python3 tools/build-albums.py
+```
+
+`size` is `normal`, `wide` or `tall` and controls how the tile spans the mosaic.
+
+This is a command-line workflow, not the upload screen — that needs a backend, which is
+a separate decision (see **Next** below).
 
 ## Running it
 
@@ -23,43 +41,49 @@ assets/img/film/         Vimeo poster frames
 python3 -m http.server 8000   # then visit http://localhost:8000
 ```
 
-## The design
+## Speed
 
-Warm porcelain and bronze palette, Cormorant Garamond for display type against Jost for
-interface type, and full-bleed photography carrying each section.
+First load is **~335 KB** with **zero third-party requests**:
 
-- **Hero** — full-viewport reception frame with a slow pan, layered scrim so the type stays
-  legible, and a stat row (years, venues, reply time)
-- **Masthead** — transparent over the hero, frosted and solid once you scroll past it; the
-  eleven-page menu lives in a full-screen overlay so the bar stays quiet
-- **Story** — asymmetric split, the studio's three paragraphs, and a service index
-- **Venues** — a nine-tile mosaic with wide and tall spans; tiles link through to each venue
-  page, and a zoom button opens a keyboard-navigable lightbox
-- **Films** — poster-first grid; the Vimeo player is injected only when you press play, so
-  nine embeds cost nothing on load
-- **Testimonials** — dark section, one quote at a time, arrows/dots/swipe, auto-height
-- **Enquire** — split layout with floating-label fields on a raised card
-- **Footer** — brand note, quick links, opening hours, map
+| | |
+|---|---|
+| HTML + CSS + JS | 86 KB |
+| 2 preloaded fonts | 63 KB |
+| Hero photo (AVIF, 1800px) | 172 KB |
+| Logo | 15 KB |
 
-Dark mode ships via `prefers-color-scheme`, motion is disabled under
-`prefers-reduced-motion`, and breakpoints land at 1100px (nav collapse), 900px, 780px
-and 600px.
+How it gets there:
 
-## Performance notes
+- **AVIF first, WebP second, JPEG fallback** through `<picture>`, at four widths. AVIF runs
+  roughly half the weight of the equivalent JPEG.
+- **Self-hosted fonts** — no render-blocking request to Google Fonts, latin subset only,
+  the two faces used above the fold are preloaded.
+- **Critical shell CSS is inlined**, so first paint never waits on the stylesheet.
+- **Vimeo players load on click.** Nine films cost nothing until someone presses play.
+- **The Google map loads on click** too, so no third-party frame on first paint.
+- Everything below the fold is `loading="lazy"` with width/height set, so nothing shifts.
 
-- Images are served from a `srcset` at three widths; the hero is preloaded with
-  `fetchpriority="high"`, everything else is lazy
-- Films load zero third-party bytes until clicked
-- No jQuery, Elementor, Slider Revolution, analytics or pixel runtimes
-- Icons are inline SVG; only the two font families are fetched externally
+## The page
 
-## Differences from the live site
+Warm porcelain and bronze, Cormorant Garamond against Jost, photography carrying every
+section. Hero → albums → accreditations → approach → films → testimonials → enquiry.
 
-- **The form has no backend.** It validates client-side and shows the studio's email and
-  phone instead. Point `action` at your own handler to make it live.
-- **Nav and venue links are relative paths** mirroring the live URL structure
-  (`photography/`, `sofitel-fiji-weddings/`, …). Only the home page lives in this repo, so
-  they resolve once the sibling pages exist.
-- **Film titles and posters** come from the studio's own Vimeo channel metadata; the
-  original page showed unlabelled players.
-- **`LocalBusiness` structured data** replaces the WordPress-generated JSON-LD.
+The album mosaic is the centre of the page: nine resort albums with wide and tall spans,
+a "View album" affordance on hover, and a corner button that opens the cover full screen
+in a keyboard-navigable lightbox.
+
+Nav matches the site: Home, Photography, Film, Elopements, Family Photography, DJ Services,
+About Us, Contact Us — inline above 1100px, full-screen overlay below.
+
+Dark mode ships via `prefers-color-scheme`; motion is disabled under
+`prefers-reduced-motion`.
+
+## Next
+
+- **Album uploads** need a backend. The options are keeping WordPress and replacing the
+  theme (keeps the admin and the existing albums), or a headless CMS behind a Next.js
+  front end. Not started — the architecture is still to be decided.
+- **The enquiry form has no backend.** It validates client-side and shows the studio's email
+  and phone. Point `action` at a handler to make it live.
+- **Nav and album links are relative paths** mirroring the live URL structure. Only the home
+  page lives in this repo, so they resolve once the sibling pages exist.

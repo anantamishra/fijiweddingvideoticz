@@ -13,17 +13,32 @@
 <meta property="og:description" content="Fiji Wedding Photographer &amp; DJ : Videoticz has over 10 years experience as wedding photographer &amp; videographer in Fiji">
 <meta property="og:url" content="https://fijiweddingvideoticz.com/">
 <meta property="og:site_name" content="Videoticz Fiji Destination Wedding Photographer">
-<meta property="og:image" content="assets/img/gallery/sofitel-reception-1536.jpg">
+<meta property="og:image" content="assets/img/gallery/sofitel-reception-drone-1200.jpg">
 <link rel="icon" href="assets/img/brand/logo.png" type="image/png">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="assets/img/gallery/sofitel-reception-1536.jpg" fetchpriority="high">
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/cormorant-garamond-300.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/jost-400.woff2" crossorigin>
+<link rel="preload" as="image" type="image/avif" href="assets/img/gallery/sofitel-reception-drone-1800.avif" fetchpriority="high">
+
+<!-- Critical shell: first paint never waits on the stylesheet. -->
+<style>
+:root{--bg:#FAF7F4;--ink:#14110F;--accent:#A9784F;--f-display:"Cormorant Garamond",Georgia,serif;--f-ui:"Jost","Helvetica Neue",Arial,sans-serif}
+@media(prefers-color-scheme:dark){:root{--bg:#0C0B0A;--ink:#F4EEE7;--accent:#C79A6B}}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);font-family:var(--f-ui);font-weight:300;line-height:1.72;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+.hero{position:relative;min-height:100svh;display:grid;grid-template-rows:1fr auto;align-content:end;padding-block:clamp(120px,18vh,200px) clamp(26px,4vh,44px);color:#fff;isolation:isolate}
+.hero-frame{position:absolute;inset:0;z-index:-1;overflow:hidden;background:#0b0a09}
+.hero-frame img{width:100%;height:100%;object-fit:cover}
+.shell{width:100%;max-width:1280px;margin-inline:auto;padding-inline:clamp(18px,4vw,44px)}
+.masthead{position:fixed;inset:0 0 auto;z-index:110;color:#fff;padding-block:clamp(10px,2vw,20px)}
+</style>
+
+<link rel="stylesheet" href="assets/css/fonts.css">
 <link rel="stylesheet" href="assets/css/style.css">
 
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"LocalBusiness","@id":"https://fijiweddingvideoticz.com/#business","name":"Videoticz Fiji Destination Wedding Photographer","image":"https://fijiweddingvideoticz.com/wp-content/uploads/2023/01/1.png","description":"Fiji Wedding Photographer & DJ : Videoticz has over 10 years experience as wedding photographer & videographer in Fiji","email":"videoticzfiji@gmail.com","telephone":"+679 9452304","url":"https://fijiweddingvideoticz.com/","address":{"@type":"PostalAddress","addressLocality":"Sigatoka","addressRegion":"Coral Coast","addressCountry":"FJ"},"openingHours":"Mo-Su 00:00-23:59","sameAs":["https://www.facebook.com/fiji.wedding.photography.videography","https://www.instagram.com/fiji_wedding_photography/","https://vimeo.com/fijiweddingvideography/"]}
+{"@context":"https://schema.org","@type":"LocalBusiness","@id":"https://fijiweddingvideoticz.com/#business","name":"Videoticz Fiji Destination Wedding Photographer","image":"https://fijiweddingvideoticz.com/wp-content/uploads/2023/01/1.png","description":"Fiji Wedding Photographer & DJ : Videoticz has over 10 years experience as wedding photographer & videographer in Fiji","email":"videoticzfiji@gmail.com","telephone":"+679 9452304","url":"https://fijiweddingvideoticz.com/","priceRange":"$$","address":{"@type":"PostalAddress","addressLocality":"Sigatoka","addressRegion":"Coral Coast","addressCountry":"FJ"},"openingHours":"Mo-Su 00:00-23:59","sameAs":["https://www.facebook.com/fiji.wedding.photography.videography","https://www.instagram.com/fiji_wedding_photography/","https://vimeo.com/fijiweddingvideography/"]}
 </script>
 </head>
 
@@ -42,16 +57,18 @@
       </span>
     </a>
 
-    <nav class="quick-nav" aria-label="Primary">
+    <nav class="main-nav" aria-label="Primary">
+      <a href="index.html" aria-current="page">Home</a>
       <a href="photography/">Photography</a>
-      <a href="cinematography/">Cinematography</a>
-      <a href="elopements-fiji/">Elopement</a>
+      <a href="cinematography/">Film</a>
+      <a href="elopements-fiji/">Elopements</a>
+      <a href="family-couple-photographer-fiji/">Family Photography</a>
       <a href="dj-services/">DJ Services</a>
-      <a href="about-us/">About</a>
+      <a href="about-us/">About Us</a>
+      <a href="contact/">Contact Us</a>
     </nav>
 
     <div class="masthead-actions">
-      <a class="pill pill--ghost" href="tel:+6799452304">+679 9452304</a>
       <a class="pill" href="#enquire">Enquire</a>
       <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menuPanel">
         <span class="menu-btn-lines" aria-hidden="true"><i></i><i></i></span>
@@ -67,15 +84,12 @@
     <nav class="menu-links" aria-label="All pages">
       <a href="index.html"><span>01</span>Home</a>
       <a href="photography/"><span>02</span>Photography</a>
-      <a href="cinematography/"><span>03</span>Cinematography</a>
-      <a href="elopements-fiji/"><span>04</span>Elopement</a>
+      <a href="cinematography/"><span>03</span>Film</a>
+      <a href="elopements-fiji/"><span>04</span>Elopements</a>
       <a href="family-couple-photographer-fiji/"><span>05</span>Family Photography</a>
       <a href="dj-services/"><span>06</span>DJ Services</a>
       <a href="about-us/"><span>07</span>About Us</a>
-      <a href="weddings-in-fiji-islands/"><span>08</span>Fiji Wedding Guide</a>
-      <a href="blog-wedding-photographer-fiji/"><span>09</span>Choosing a Photographer</a>
-      <a href="contact/"><span>10</span>Contact Us</a>
-      <a href="fiji-wedding-photographer-contact-us/"><span>11</span>Enquiries</a>
+      <a href="contact/"><span>08</span>Contact Us</a>
     </nav>
 
     <div class="menu-aside">
@@ -97,19 +111,20 @@
   <!-- ===================== HERO ===================== -->
   <section class="hero" id="top">
     <div class="hero-frame">
-      <img class="hero-img" src="assets/img/gallery/sofitel-reception-1536.jpg"
-           srcset="assets/img/gallery/sofitel-reception-768.jpg 768w, assets/img/gallery/sofitel-reception-1024.jpg 1024w, assets/img/gallery/sofitel-reception-1536.jpg 1536w"
-           sizes="100vw" width="1536" height="1152"
-           alt="Fireworks over a Sofitel Fiji wedding reception at night, photographed by Videoticz" fetchpriority="high">
+      <picture>
+        <source type="image/avif" srcset="assets/img/gallery/sofitel-reception-drone-768.avif 768w, assets/img/gallery/sofitel-reception-drone-1200.avif 1200w, assets/img/gallery/sofitel-reception-drone-1800.avif 1800w" sizes="100vw">
+        <source type="image/webp" srcset="assets/img/gallery/sofitel-reception-drone-768.webp 768w, assets/img/gallery/sofitel-reception-drone-1200.webp 1200w, assets/img/gallery/sofitel-reception-drone-1800.webp 1800w" sizes="100vw">
+        <img class="hero-img" src="assets/img/gallery/sofitel-reception-drone-1200.jpg" width="1800" height="1350" alt="Fireworks over a Sofitel Fiji wedding reception at night, photographed by Videoticz" fetchpriority="high">
+      </picture>
       <span class="hero-veil" aria-hidden="true"></span>
     </div>
 
     <div class="shell hero-body">
       <p class="eyebrow eyebrow--light">Fiji Islands &middot; Destination Weddings Since 2013</p>
       <h1>Fiji Wedding Photographer <span>| DJ Services</span></h1>
-      <p class="hero-lede">Photography, cinematography and music for couples marrying across the islands &mdash; Sofitel, Marriott, Shangri&#8209;La, Musket Cove, Treasure Island and beyond.</p>
+      <p class="hero-lede">Photography, film and music for couples marrying across the islands &mdash; Sofitel, Marriott, Shangri&#8209;La, Musket Cove, Treasure Island and beyond.</p>
       <div class="hero-cta">
-        <a class="btn btn--solid" href="#venues">View the portfolio</a>
+        <a class="btn btn--solid" href="#albums">Browse the albums</a>
         <a class="btn btn--line" href="#enquire">Check your date</a>
       </div>
     </div>
@@ -120,7 +135,176 @@
         <div><dt>Island venues covered</dt><dd>40+</dd></div>
         <div><dt>Reply time, any day</dt><dd>24h</dd></div>
       </dl>
-      <a class="scroll-cue" href="#story"><span></span>Scroll</a>
+      <a class="scroll-cue" href="#albums"><span></span>Scroll</a>
+    </div>
+  </section>
+
+  <!-- ===================== ALBUMS ===================== -->
+  <section class="section albums" id="albums">
+    <div class="shell">
+      <header class="section-head">
+        <p class="eyebrow">Wedding albums</p>
+        <h2 class="display">Every resort, every album<span class="thin">.</span></h2>
+        <p class="section-sub">Island weddings across Fiji&rsquo;s resorts &mdash; open an album to see the full story, or tap the corner of any cover to view the photo full screen.</p>
+      </header>
+
+      <div class="mosaic">
+        <!-- ALBUMS:START -->
+        <article class="tile tile--wide">
+          <a class="tile-link" href="sofitel-fiji-weddings/">
+            <picture>
+              <source type="image/avif" srcset="assets/img/gallery/sofitel-reception-drone-768.avif 768w, assets/img/gallery/sofitel-reception-drone-1200.avif 1200w, assets/img/gallery/sofitel-reception-drone-1800.avif 1800w" sizes="(max-width: 780px) 100vw, 66vw">
+              <source type="image/webp" srcset="assets/img/gallery/sofitel-reception-drone-768.webp 768w, assets/img/gallery/sofitel-reception-drone-1200.webp 1200w, assets/img/gallery/sofitel-reception-drone-1800.webp 1800w" sizes="(max-width: 780px) 100vw, 66vw">
+              <img src="assets/img/gallery/sofitel-reception-drone-1200.jpg" width="1200" height="800" alt="Fireworks over a Sofitel Fiji wedding reception at night" loading="lazy" decoding="async">
+            </picture>
+            <span class="tile-body">
+              <span class="tile-kicker">Coral Coast</span>
+              <span class="tile-title">Sofitel Fiji Wedding</span>
+              <span class="tile-more">View album <i aria-hidden="true">&#8594;</i></span>
+            </span>
+          </a>
+          <button class="tile-zoom" data-slug="sofitel-reception-drone" data-caption="Sofitel Fiji Wedding &mdash; Coral Coast" aria-label="Open photo: Sofitel Fiji Wedding">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6h-2V6.41l-3.3 3.3-1.4-1.42L17.58 5H15ZM3 15h2v2.59l3.3-3.3 1.4 1.42L6.42 19H9v2H3Z"/></svg>
+          </button>
+        </article>
+        <article class="tile">
+          <a class="tile-link" href="sofitel-fiji-wedding-photos-bronte-jan/">
+            <picture>
+              <source type="image/avif" srcset="assets/img/gallery/sofitel-bronte-jan-480.avif 480w, assets/img/gallery/sofitel-bronte-jan-768.avif 768w, assets/img/gallery/sofitel-bronte-jan-1200.avif 1200w" sizes="(max-width: 600px) 100vw, (max-width: 780px) 50vw, 33vw">
+              <source type="image/webp" srcset="assets/img/gallery/sofitel-bronte-jan-480.webp 480w, assets/img/gallery/sofitel-bronte-jan-768.webp 768w, assets/img/gallery/sofitel-bronte-jan-1200.webp 1200w" sizes="(max-width: 600px) 100vw, (max-width: 780px) 50vw, 33vw">
+              <img src="assets/img/gallery/sofitel-bronte-jan-1200.jpg" width="1200" height="800" alt="Sofitel Fiji wedding photos of Bronte and Jan" loading="lazy" decoding="async">
+            </picture>
+            <span class="tile-body">
+              <span class="tile-kicker">Bronte & Jan</span>
+              <span class="tile-title">Sofitel Fiji Wedding</span>
+              <span class="tile-more">View album <i aria-hidden="true">&#8594;</i></span>
+            </span>
+          </a>
+          <button class="tile-zoom" data-slug="sofitel-bronte-jan" data-caption="Sofitel Fiji Wedding &mdash; Bronte & Jan" aria-label="Open photo: Sofitel Fiji Wedding">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6h-2V6.41l-3.3 3.3-1.4-1.42L17.58 5H15ZM3 15h2v2.59l3.3-3.3 1.4 1.42L6.42 19H9v2H3Z"/></svg>
+          </button>
+        </article>
+        <article class="tile">
+          <a class="tile-link" href="marriott-fiji-wedding/">
+            <picture>
+              <source type="image/avif" srcset="assets/img/gallery/marriott-480.avif 480w, assets/img/gallery/marriott-768.avif 768w" sizes="(max-width: 600px) 100vw, (max-width: 780px) 50vw, 33vw">
+              <source type="image/webp" srcset="assets/img/gallery/marriott-480.webp 480w, assets/img/gallery/marriott-768.webp 768w" sizes="(max-width: 600px) 100vw, (max-width: 780px) 50vw, 33vw">
+              <img src="assets/img/gallery/marriott-1200.jpg" width="1200" height="800" alt="Marriott Fiji Resort Momi Bay wedding photography" loading="lazy" decoding="async">
+            </picture>
+            <span class="tile-body">
+              <span class="tile-kicker">Momi Bay</span>
+              <span class="tile-title">Marriott Fiji Wedding</span>
+              <span class="tile-more">View album <i aria-hidden="true">&#8594;</i></span>
+            </span>
+          </a>
+          <button class="tile-zoom" data-slug="marriott" data-caption="Marriott Fiji Wedding &mdash; Momi Bay" aria-label="Open photo: Marriott Fiji Wedding">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6h-2V6.41l-3.3 3.3-1.4-1.42L17.58 5H15ZM3 15h2v2.59l3.3-3.3 1.4 1.42L6.42 19H9v2H3Z"/></svg>
+          </button>
+        </article>
+        <article class="tile">
+          <a class="tile-link" href="musket-cover-fiji-wedding-photos-videoticzfiji/">
+            <picture>
+              <source type="image/avif" srcset="assets/img/gallery/musket-cove-1-480.avif 480w, assets/img/gallery/musket-cove-1-768.avif 768w, assets/img/gallery/musket-cove-1-1200.avif 1200w" sizes="(max-width: 600px) 100vw, (max-width: 780px) 50vw, 33vw">
+              <source type="image/webp" srcset="assets/img/gallery/musket-cove-1-480.webp 480w, assets/img/gallery/musket-cove-1-768.webp 768w, assets/img/gallery/musket-cove-1-1200.webp 1200w" sizes="(max-width: 600px) 100vw, (max-width: 780px) 50vw, 33vw">
+              <img src="assets/img/gallery/musket-cove-1-1200.jpg" width="1200" height="800" alt="Musket Cove Fiji wedding photos by Videoticz Fiji" loading="lazy" decoding="async">
+            </picture>
+            <span class="tile-body">
+              <span class="tile-kicker">Mamanuca Islands</span>
+              <span class="tile-title">Musket Cove Fiji Wedding</span>
+              <span class="tile-more">View album <i aria-hidden="true">&#8594;</i></span>
+            </span>
+          </a>
+          <button class="tile-zoom" data-slug="musket-cove-1" data-caption="Musket Cove Fiji Wedding &mdash; Mamanuca Islands" aria-label="Open photo: Musket Cove Fiji Wedding">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6h-2V6.41l-3.3 3.3-1.4-1.42L17.58 5H15ZM3 15h2v2.59l3.3-3.3 1.4 1.42L6.42 19H9v2H3Z"/></svg>
+          </button>
+        </article>
+        <article class="tile tile--tall">
+          <a class="tile-link" href="sofitel-fiji-wedding/">
+            <picture>
+              <source type="image/avif" srcset="assets/img/gallery/sofitel-480.avif 480w, assets/img/gallery/sofitel-768.avif 768w, assets/img/gallery/sofitel-1200.avif 1200w" sizes="(max-width: 600px) 100vw, (max-width: 780px) 50vw, 33vw">
+              <source type="image/webp" srcset="assets/img/gallery/sofitel-480.webp 480w, assets/img/gallery/sofitel-768.webp 768w, assets/img/gallery/sofitel-1200.webp 1200w" sizes="(max-width: 600px) 100vw, (max-width: 780px) 50vw, 33vw">
+              <img src="assets/img/gallery/sofitel-1200.jpg" width="1200" height="800" alt="Sofitel Fiji wedding photography" loading="lazy" decoding="async">
+            </picture>
+            <span class="tile-body">
+              <span class="tile-kicker">Denarau</span>
+              <span class="tile-title">Sofitel Fiji Wedding</span>
+              <span class="tile-more">View album <i aria-hidden="true">&#8594;</i></span>
+            </span>
+          </a>
+          <button class="tile-zoom" data-slug="sofitel" data-caption="Sofitel Fiji Wedding &mdash; Denarau" aria-label="Open photo: Sofitel Fiji Wedding">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6h-2V6.41l-3.3 3.3-1.4-1.42L17.58 5H15ZM3 15h2v2.59l3.3-3.3 1.4 1.42L6.42 19H9v2H3Z"/></svg>
+          </button>
+        </article>
+        <article class="tile">
+          <a class="tile-link" href="musket-cove-fiji-wedding/">
+            <picture>
+              <source type="image/avif" srcset="assets/img/gallery/musket-cove-2-480.avif 480w, assets/img/gallery/musket-cove-2-768.avif 768w, assets/img/gallery/musket-cove-2-1200.avif 1200w" sizes="(max-width: 600px) 100vw, (max-width: 780px) 50vw, 33vw">
+              <source type="image/webp" srcset="assets/img/gallery/musket-cove-2-480.webp 480w, assets/img/gallery/musket-cove-2-768.webp 768w, assets/img/gallery/musket-cove-2-1200.webp 1200w" sizes="(max-width: 600px) 100vw, (max-width: 780px) 50vw, 33vw">
+              <img src="assets/img/gallery/musket-cove-2-1200.jpg" width="1200" height="800" alt="Musket Cove Fiji wedding photographer" loading="lazy" decoding="async">
+            </picture>
+            <span class="tile-body">
+              <span class="tile-kicker">Malolo Lailai</span>
+              <span class="tile-title">Musket Cove Fiji Wedding</span>
+              <span class="tile-more">View album <i aria-hidden="true">&#8594;</i></span>
+            </span>
+          </a>
+          <button class="tile-zoom" data-slug="musket-cove-2" data-caption="Musket Cove Fiji Wedding &mdash; Malolo Lailai" aria-label="Open photo: Musket Cove Fiji Wedding">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6h-2V6.41l-3.3 3.3-1.4-1.42L17.58 5H15ZM3 15h2v2.59l3.3-3.3 1.4 1.42L6.42 19H9v2H3Z"/></svg>
+          </button>
+        </article>
+        <article class="tile">
+          <a class="tile-link" href="shangrilafijiweddingmegancullum">
+            <picture>
+              <source type="image/avif" srcset="assets/img/gallery/shangrila-480.avif 480w, assets/img/gallery/shangrila-768.avif 768w, assets/img/gallery/shangrila-1200.avif 1200w" sizes="(max-width: 600px) 100vw, (max-width: 780px) 50vw, 33vw">
+              <source type="image/webp" srcset="assets/img/gallery/shangrila-480.webp 480w, assets/img/gallery/shangrila-768.webp 768w, assets/img/gallery/shangrila-1200.webp 1200w" sizes="(max-width: 600px) 100vw, (max-width: 780px) 50vw, 33vw">
+              <img src="assets/img/gallery/shangrila-1200.jpg" width="1200" height="800" alt="Shangri-La Fijian Resort wedding of Megan and Cullum" loading="lazy" decoding="async">
+            </picture>
+            <span class="tile-body">
+              <span class="tile-kicker">Yanuca Island</span>
+              <span class="tile-title">Shangri-La Fijian Resort</span>
+              <span class="tile-more">View album <i aria-hidden="true">&#8594;</i></span>
+            </span>
+          </a>
+          <button class="tile-zoom" data-slug="shangrila" data-caption="Shangri-La Fijian Resort &mdash; Yanuca Island" aria-label="Open photo: Shangri-La Fijian Resort">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6h-2V6.41l-3.3 3.3-1.4-1.42L17.58 5H15ZM3 15h2v2.59l3.3-3.3 1.4 1.42L6.42 19H9v2H3Z"/></svg>
+          </button>
+        </article>
+        <article class="tile">
+          <a class="tile-link" href="treasure-island-fiji-wedding-photography">
+            <picture>
+              <source type="image/avif" srcset="assets/img/gallery/treasure-island-480.avif 480w, assets/img/gallery/treasure-island-768.avif 768w, assets/img/gallery/treasure-island-1200.avif 1200w" sizes="(max-width: 600px) 100vw, (max-width: 780px) 50vw, 33vw">
+              <source type="image/webp" srcset="assets/img/gallery/treasure-island-480.webp 480w, assets/img/gallery/treasure-island-768.webp 768w, assets/img/gallery/treasure-island-1200.webp 1200w" sizes="(max-width: 600px) 100vw, (max-width: 780px) 50vw, 33vw">
+              <img src="assets/img/gallery/treasure-island-1200.jpg" width="1200" height="800" alt="Treasure Island Fiji wedding photos by Videoticz Fiji" loading="lazy" decoding="async">
+            </picture>
+            <span class="tile-body">
+              <span class="tile-kicker">Mamanuca Islands</span>
+              <span class="tile-title">Treasure Island Wedding</span>
+              <span class="tile-more">View album <i aria-hidden="true">&#8594;</i></span>
+            </span>
+          </a>
+          <button class="tile-zoom" data-slug="treasure-island" data-caption="Treasure Island Wedding &mdash; Mamanuca Islands" aria-label="Open photo: Treasure Island Wedding">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6h-2V6.41l-3.3 3.3-1.4-1.42L17.58 5H15ZM3 15h2v2.59l3.3-3.3 1.4 1.42L6.42 19H9v2H3Z"/></svg>
+          </button>
+        </article>
+        <article class="tile tile--wide">
+          <a class="tile-link" href="intercontinental-fiji-resort-wedding-priyanka-visha/">
+            <picture>
+              <source type="image/avif" srcset="assets/img/gallery/intercontinental-768.avif 768w, assets/img/gallery/intercontinental-1200.avif 1200w, assets/img/gallery/intercontinental-1800.avif 1800w" sizes="(max-width: 780px) 100vw, 66vw">
+              <source type="image/webp" srcset="assets/img/gallery/intercontinental-768.webp 768w, assets/img/gallery/intercontinental-1200.webp 1200w, assets/img/gallery/intercontinental-1800.webp 1800w" sizes="(max-width: 780px) 100vw, 66vw">
+              <img src="assets/img/gallery/intercontinental-1200.jpg" width="1200" height="800" alt="InterContinental Fiji Resort wedding of Priyanka and Visha" loading="lazy" decoding="async">
+            </picture>
+            <span class="tile-body">
+              <span class="tile-kicker">Natadola Bay</span>
+              <span class="tile-title">InterContinental Fiji Wedding</span>
+              <span class="tile-more">View album <i aria-hidden="true">&#8594;</i></span>
+            </span>
+          </a>
+          <button class="tile-zoom" data-slug="intercontinental" data-caption="InterContinental Fiji Wedding &mdash; Natadola Bay" aria-label="Open photo: InterContinental Fiji Wedding">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6h-2V6.41l-3.3 3.3-1.4-1.42L17.58 5H15ZM3 15h2v2.59l3.3-3.3 1.4 1.42L6.42 19H9v2H3Z"/></svg>
+          </button>
+        </article>
+        <!-- ALBUMS:END -->
+      </div>
     </div>
   </section>
 
@@ -129,22 +313,23 @@
     <div class="shell trust-inner">
       <p class="eyebrow">As listed &amp; accredited by</p>
       <ul>
-        <li><img src="assets/img/brand/badge-bulabride.png" width="423" height="119" alt="Bula Bride" loading="lazy"></li>
-        <li><img src="assets/img/brand/badge-easyweddings.png" width="225" height="225" alt="Easy Weddings supplier network" loading="lazy"></li>
-        <li><img src="assets/img/brand/badge-mandi.png" width="275" height="183" alt="Married by Mandi" loading="lazy"></li>
-        <li><img src="assets/img/brand/accredit.png" width="150" height="150" alt="AIPP accredited professional photographer and video producer" loading="lazy"></li>
+        <li><img src="assets/img/brand/badge-bulabride.png" width="423" height="119" alt="Bula Bride" loading="lazy" decoding="async"></li>
+        <li><img src="assets/img/brand/badge-easyweddings.png" width="225" height="225" alt="Easy Weddings supplier network" loading="lazy" decoding="async"></li>
+        <li><img src="assets/img/brand/badge-mandi.png" width="275" height="183" alt="Married by Mandi" loading="lazy" decoding="async"></li>
+        <li><img src="assets/img/brand/accredit.png" width="150" height="150" alt="AIPP accredited professional photographer and video producer" loading="lazy" decoding="async"></li>
       </ul>
     </div>
   </section>
 
   <!-- ===================== STORY ===================== -->
-  <section class="section story" id="story">
+  <section class="section section--tint story" id="story">
     <div class="shell story-grid">
       <figure class="story-figure">
-        <img src="assets/img/gallery/elopement-story-1024.jpg"
-             srcset="assets/img/gallery/elopement-story-768.jpg 768w, assets/img/gallery/elopement-story-1024.jpg 1024w, assets/img/gallery/elopement-story-1536.jpg 1536w"
-             sizes="(max-width: 900px) 100vw, 46vw" width="1024" height="683"
-             alt="Couple photographed on the shoreline during a Fiji elopement" loading="lazy">
+        <picture>
+          <source type="image/avif" srcset="assets/img/gallery/elopement-story-480.avif 480w, assets/img/gallery/elopement-story-768.avif 768w, assets/img/gallery/elopement-story-1200.avif 1200w" sizes="(max-width: 900px) 100vw, 44vw">
+          <source type="image/webp" srcset="assets/img/gallery/elopement-story-480.webp 480w, assets/img/gallery/elopement-story-768.webp 768w, assets/img/gallery/elopement-story-1200.webp 1200w" sizes="(max-width: 900px) 100vw, 44vw">
+          <img src="assets/img/gallery/elopement-story-1200.jpg" width="1200" height="800" alt="Couple photographed on the shoreline during a Fiji elopement" loading="lazy" decoding="async">
+        </picture>
         <figcaption>Elopements &mdash; Fiji Islands</figcaption>
       </figure>
 
@@ -157,95 +342,11 @@
 
         <ul class="story-services">
           <li><a href="photography/">Photography<span aria-hidden="true">&#8594;</span></a></li>
-          <li><a href="cinematography/">Cinematography<span aria-hidden="true">&#8594;</span></a></li>
+          <li><a href="cinematography/">Film<span aria-hidden="true">&#8594;</span></a></li>
           <li><a href="elopements-fiji/">Elopements<span aria-hidden="true">&#8594;</span></a></li>
+          <li><a href="family-couple-photographer-fiji/">Family Photography<span aria-hidden="true">&#8594;</span></a></li>
           <li><a href="dj-services/">DJ &amp; MC<span aria-hidden="true">&#8594;</span></a></li>
         </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== VENUES ===================== -->
-  <section class="section section--tint venues" id="venues">
-    <div class="shell">
-      <header class="section-head">
-        <p class="eyebrow">Recent work</p>
-        <h2 class="display">Fiji Wedding Venues <span class="thin">|&nbsp;Photography</span></h2>
-        <p class="section-sub">Nine island weddings, from clifftop ceremonies to fire-lit receptions. Open a gallery, or view the full story on each venue page.</p>
-      </header>
-
-      <div class="mosaic">
-        <article class="tile tile--wide">
-          <a class="tile-link" href="sofitel-fiji-weddings/">
-            <img src="assets/img/gallery/sofitel-reception-1024.jpg" srcset="assets/img/gallery/sofitel-reception-768.jpg 768w, assets/img/gallery/sofitel-reception-1024.jpg 1024w, assets/img/gallery/sofitel-reception-1536.jpg 1536w" sizes="(max-width: 780px) 100vw, 66vw" width="1024" height="768" alt="Sofitel Fiji wedding reception lit up at night" loading="lazy">
-            <span class="tile-body"><span class="tile-kicker">Coral Coast</span><span class="tile-title">Sofitel Fiji Wedding</span></span>
-          </a>
-          <button class="tile-zoom" data-full="assets/img/gallery/sofitel-reception-1536.jpg" data-caption="Sofitel Fiji Wedding — reception, Coral Coast" aria-label="Open photo: Sofitel Fiji Wedding reception"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6h-2V6.41l-3.3 3.3-1.4-1.42L17.58 5H15ZM3 15h2v2.59l3.3-3.3 1.4 1.42L6.42 19H9v2H3Z"/></svg></button>
-        </article>
-
-        <article class="tile">
-          <a class="tile-link" href="sofitel-fiji-wedding-photos-bronte-jan/">
-            <img src="assets/img/gallery/sofitel-bronte-jan-768.jpg" srcset="assets/img/gallery/sofitel-bronte-jan-768.jpg 768w, assets/img/gallery/sofitel-bronte-jan-1024.jpg 1024w" sizes="(max-width: 780px) 100vw, 33vw" width="768" height="512" alt="Sofitel Fiji wedding photos of Bronte and Jan" loading="lazy">
-            <span class="tile-body"><span class="tile-kicker">Bronte &amp; Jan</span><span class="tile-title">Sofitel Fiji Wedding</span></span>
-          </a>
-          <button class="tile-zoom" data-full="assets/img/gallery/sofitel-bronte-jan-1536.jpg" data-caption="Sofitel Fiji Wedding — Bronte &amp; Jan" aria-label="Open photo: Bronte and Jan at Sofitel Fiji"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6h-2V6.41l-3.3 3.3-1.4-1.42L17.58 5H15ZM3 15h2v2.59l3.3-3.3 1.4 1.42L6.42 19H9v2H3Z"/></svg></button>
-        </article>
-
-        <article class="tile">
-          <a class="tile-link" href="marriott-fiji-wedding/">
-            <img src="assets/img/gallery/marriott-768.jpg" srcset="assets/img/gallery/marriott-768.jpg 768w, assets/img/gallery/marriott-1024.jpg 1024w" sizes="(max-width: 780px) 100vw, 33vw" width="768" height="512" alt="Marriott Fiji Resort Momi Bay wedding photography" loading="lazy">
-            <span class="tile-body"><span class="tile-kicker">Momi Bay</span><span class="tile-title">Marriott Fiji Wedding</span></span>
-          </a>
-          <button class="tile-zoom" data-full="assets/img/gallery/marriott-1024.jpg" data-caption="Marriott Fiji Wedding — Momi Bay" aria-label="Open photo: Marriott Fiji wedding"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6h-2V6.41l-3.3 3.3-1.4-1.42L17.58 5H15ZM3 15h2v2.59l3.3-3.3 1.4 1.42L6.42 19H9v2H3Z"/></svg></button>
-        </article>
-
-        <article class="tile">
-          <a class="tile-link" href="musket-cover-fiji-wedding-photos-videoticzfiji/">
-            <img src="assets/img/gallery/musket-cove-1-768.jpg" srcset="assets/img/gallery/musket-cove-1-768.jpg 768w, assets/img/gallery/musket-cove-1-1024.jpg 1024w" sizes="(max-width: 780px) 100vw, 33vw" width="768" height="512" alt="Musket Cove Fiji wedding photos by Videoticz Fiji" loading="lazy">
-            <span class="tile-body"><span class="tile-kicker">Mamanucas</span><span class="tile-title">Musket Cove Fiji Wedding</span></span>
-          </a>
-          <button class="tile-zoom" data-full="assets/img/gallery/musket-cove-1-1536.jpg" data-caption="Musket Cove Fiji Wedding — Mamanuca Islands" aria-label="Open photo: Musket Cove Fiji wedding"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6h-2V6.41l-3.3 3.3-1.4-1.42L17.58 5H15ZM3 15h2v2.59l3.3-3.3 1.4 1.42L6.42 19H9v2H3Z"/></svg></button>
-        </article>
-
-        <article class="tile tile--tall">
-          <a class="tile-link" href="sofitel-fiji-wedding/">
-            <img src="assets/img/gallery/sofitel-1024.jpg" srcset="assets/img/gallery/sofitel-768.jpg 768w, assets/img/gallery/sofitel-1024.jpg 1024w, assets/img/gallery/sofitel-1536.jpg 1536w" sizes="(max-width: 780px) 100vw, 33vw" width="1024" height="683" alt="Sofitel Fiji wedding photos by a Fiji wedding photographer" loading="lazy">
-            <span class="tile-body"><span class="tile-kicker">Denarau</span><span class="tile-title">Sofitel Fiji Wedding</span></span>
-          </a>
-          <button class="tile-zoom" data-full="assets/img/gallery/sofitel-1536.jpg" data-caption="Sofitel Fiji Wedding — Denarau" aria-label="Open photo: Sofitel Fiji wedding"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6h-2V6.41l-3.3 3.3-1.4-1.42L17.58 5H15ZM3 15h2v2.59l3.3-3.3 1.4 1.42L6.42 19H9v2H3Z"/></svg></button>
-        </article>
-
-        <article class="tile">
-          <a class="tile-link" href="musket-cove-fiji-wedding/">
-            <img src="assets/img/gallery/musket-cove-2-768.jpg" srcset="assets/img/gallery/musket-cove-2-768.jpg 768w, assets/img/gallery/musket-cove-2-1024.jpg 1024w" sizes="(max-width: 780px) 100vw, 33vw" width="768" height="512" alt="Musket Cove Fiji wedding photographer" loading="lazy">
-            <span class="tile-body"><span class="tile-kicker">Malolo Lailai</span><span class="tile-title">Musket Cove Fiji Wedding</span></span>
-          </a>
-          <button class="tile-zoom" data-full="assets/img/gallery/musket-cove-2-1536.jpg" data-caption="Musket Cove Fiji Wedding — Malolo Lailai" aria-label="Open photo: Musket Cove wedding"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6h-2V6.41l-3.3 3.3-1.4-1.42L17.58 5H15ZM3 15h2v2.59l3.3-3.3 1.4 1.42L6.42 19H9v2H3Z"/></svg></button>
-        </article>
-
-        <article class="tile">
-          <a class="tile-link" href="shangrilafijiweddingmegancullum">
-            <img src="assets/img/gallery/shangrila-768.jpg" srcset="assets/img/gallery/shangrila-768.jpg 768w, assets/img/gallery/shangrila-1024.jpg 1024w" sizes="(max-width: 780px) 100vw, 33vw" width="768" height="512" alt="Shangri-La Fijian Resort wedding of Megan and Cullum" loading="lazy">
-            <span class="tile-body"><span class="tile-kicker">Yanuca Island</span><span class="tile-title">Shangri&#8209;La Fijian Resort</span></span>
-          </a>
-          <button class="tile-zoom" data-full="assets/img/gallery/shangrila-1536.jpg" data-caption="Shangri-La Fijian Resort Wedding — Yanuca Island" aria-label="Open photo: Shangri-La Fijian Resort wedding"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6h-2V6.41l-3.3 3.3-1.4-1.42L17.58 5H15ZM3 15h2v2.59l3.3-3.3 1.4 1.42L6.42 19H9v2H3Z"/></svg></button>
-        </article>
-
-        <article class="tile">
-          <a class="tile-link" href="treasure-island-fiji-wedding-photography">
-            <img src="assets/img/gallery/treasure-island-768.jpg" srcset="assets/img/gallery/treasure-island-768.jpg 768w, assets/img/gallery/treasure-island-1024.jpg 1024w" sizes="(max-width: 780px) 100vw, 33vw" width="768" height="512" alt="Treasure Island Fiji wedding photos by Videoticz Fiji" loading="lazy">
-            <span class="tile-body"><span class="tile-kicker">Mamanucas</span><span class="tile-title">Treasure Island Wedding</span></span>
-          </a>
-          <button class="tile-zoom" data-full="assets/img/gallery/treasure-island-1536.jpg" data-caption="Treasure Island Fiji Wedding — Mamanuca Islands" aria-label="Open photo: Treasure Island Fiji wedding"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6h-2V6.41l-3.3 3.3-1.4-1.42L17.58 5H15ZM3 15h2v2.59l3.3-3.3 1.4 1.42L6.42 19H9v2H3Z"/></svg></button>
-        </article>
-
-        <article class="tile tile--wide">
-          <a class="tile-link" href="intercontinental-fiji-resort-wedding-priyanka-visha/">
-            <img src="assets/img/gallery/intercontinental-1024.jpg" srcset="assets/img/gallery/intercontinental-768.jpg 768w, assets/img/gallery/intercontinental-1024.jpg 1024w, assets/img/gallery/intercontinental-1536.jpg 1536w" sizes="(max-width: 780px) 100vw, 66vw" width="1024" height="683" alt="InterContinental Fiji Resort wedding of Priyanka and Visha" loading="lazy">
-            <span class="tile-body"><span class="tile-kicker">Natadola Bay</span><span class="tile-title">InterContinental Fiji Wedding</span></span>
-          </a>
-          <button class="tile-zoom" data-full="assets/img/gallery/intercontinental-1536.jpg" data-caption="InterContinental Fiji Wedding — Natadola Bay" aria-label="Open photo: InterContinental Fiji wedding"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6h-2V6.41l-3.3 3.3-1.4-1.42L17.58 5H15ZM3 15h2v2.59l3.3-3.3 1.4 1.42L6.42 19H9v2H3Z"/></svg></button>
-        </article>
       </div>
     </div>
   </section>
@@ -254,15 +355,19 @@
   <section class="section films" id="films">
     <div class="shell">
       <header class="section-head">
-        <p class="eyebrow">Cinematography</p>
+        <p class="eyebrow">Film</p>
         <h2 class="display">Fiji Wedding Films &amp; Highlight Videos</h2>
         <p class="section-sub">Press play &mdash; each film loads only when you ask for it, so the page stays fast.</p>
       </header>
 
       <div class="film-grid">
         <article class="film" data-vimeo="953781384">
-          <button class="film-play" aria-label="Play film: Sofitel Fiji Wedding Video of Bronte and Jan">
-            <img src="assets/img/film/sofitel-bronte-jan.jpg" width="960" height="540" alt="" loading="lazy">
+          <button class="film-play" aria-label="Play film: Bronte and Jan at Sofitel Fiji">
+            <picture>
+              <source type="image/avif" srcset="assets/img/film/sofitel-bronte-jan-480.avif 480w, assets/img/film/sofitel-bronte-jan-800.avif 800w" sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw">
+              <source type="image/webp" srcset="assets/img/film/sofitel-bronte-jan-480.webp 480w, assets/img/film/sofitel-bronte-jan-800.webp 800w" sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw">
+              <img src="assets/img/film/sofitel-bronte-jan-800.jpg" width="800" height="450" alt="" loading="lazy" decoding="async">
+            </picture>
             <span class="film-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5Z"/></svg></span>
           </button>
           <h3>Bronte &amp; Jan</h3>
@@ -271,7 +376,11 @@
 
         <article class="film" data-vimeo="907428336">
           <button class="film-play" aria-label="Play film: Sheraton Fiji wedding of Chanel">
-            <img src="assets/img/film/sheraton-chanel.jpg" width="960" height="540" alt="" loading="lazy">
+            <picture>
+              <source type="image/avif" srcset="assets/img/film/sheraton-chanel-480.avif 480w, assets/img/film/sheraton-chanel-800.avif 800w" sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw">
+              <source type="image/webp" srcset="assets/img/film/sheraton-chanel-480.webp 480w, assets/img/film/sheraton-chanel-800.webp 800w" sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw">
+              <img src="assets/img/film/sheraton-chanel-800.jpg" width="800" height="450" alt="" loading="lazy" decoding="async">
+            </picture>
             <span class="film-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5Z"/></svg></span>
           </button>
           <h3>Romance in Paradise</h3>
@@ -280,7 +389,11 @@
 
         <article class="film" data-vimeo="905550572">
           <button class="film-play" aria-label="Play film: Kyle and Sophie, Sofitel Fiji">
-            <img src="assets/img/film/sofitel-kyle-sophie.jpg" width="960" height="540" alt="" loading="lazy">
+            <picture>
+              <source type="image/avif" srcset="assets/img/film/sofitel-kyle-sophie-480.avif 480w, assets/img/film/sofitel-kyle-sophie-800.avif 800w" sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw">
+              <source type="image/webp" srcset="assets/img/film/sofitel-kyle-sophie-480.webp 480w, assets/img/film/sofitel-kyle-sophie-800.webp 800w" sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw">
+              <img src="assets/img/film/sofitel-kyle-sophie-800.jpg" width="800" height="450" alt="" loading="lazy" decoding="async">
+            </picture>
             <span class="film-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5Z"/></svg></span>
           </button>
           <h3>Kyle &amp; Sophie</h3>
@@ -289,7 +402,11 @@
 
         <article class="film" data-vimeo="840029112">
           <button class="film-play" aria-label="Play film: Elissa and Patrick, Outrigger Fiji Beach Resort">
-            <img src="assets/img/film/outrigger-elissa-patrick.jpg" width="960" height="540" alt="" loading="lazy">
+            <picture>
+              <source type="image/avif" srcset="assets/img/film/outrigger-elissa-patrick-480.avif 480w, assets/img/film/outrigger-elissa-patrick-800.avif 800w" sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw">
+              <source type="image/webp" srcset="assets/img/film/outrigger-elissa-patrick-480.webp 480w, assets/img/film/outrigger-elissa-patrick-800.webp 800w" sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw">
+              <img src="assets/img/film/outrigger-elissa-patrick-800.jpg" width="800" height="450" alt="" loading="lazy" decoding="async">
+            </picture>
             <span class="film-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5Z"/></svg></span>
           </button>
           <h3>Elissa &amp; Patrick</h3>
@@ -298,7 +415,11 @@
 
         <article class="film" data-vimeo="346150149">
           <button class="film-play" aria-label="Play film: Ashley and Scott, Fiji Marriott Resort Momi Bay">
-            <img src="assets/img/film/marriott-ashley-scott.jpg" width="960" height="540" alt="" loading="lazy">
+            <picture>
+              <source type="image/avif" srcset="assets/img/film/marriott-ashley-scott-480.avif 480w, assets/img/film/marriott-ashley-scott-800.avif 800w" sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw">
+              <source type="image/webp" srcset="assets/img/film/marriott-ashley-scott-480.webp 480w, assets/img/film/marriott-ashley-scott-800.webp 800w" sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw">
+              <img src="assets/img/film/marriott-ashley-scott-800.jpg" width="800" height="450" alt="" loading="lazy" decoding="async">
+            </picture>
             <span class="film-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5Z"/></svg></span>
           </button>
           <h3>Ashley &amp; Scott</h3>
@@ -307,7 +428,11 @@
 
         <article class="film" data-vimeo="339529784">
           <button class="film-play" aria-label="Play film: Ashlea and Kyle, Outrigger Fiji Resort">
-            <img src="assets/img/film/outrigger-ashlea-kyle.jpg" width="960" height="540" alt="" loading="lazy">
+            <picture>
+              <source type="image/avif" srcset="assets/img/film/outrigger-ashlea-kyle-480.avif 480w, assets/img/film/outrigger-ashlea-kyle-800.avif 800w" sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw">
+              <source type="image/webp" srcset="assets/img/film/outrigger-ashlea-kyle-480.webp 480w, assets/img/film/outrigger-ashlea-kyle-800.webp 800w" sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw">
+              <img src="assets/img/film/outrigger-ashlea-kyle-800.jpg" width="800" height="450" alt="" loading="lazy" decoding="async">
+            </picture>
             <span class="film-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5Z"/></svg></span>
           </button>
           <h3>Ashlea &amp; Kyle</h3>
@@ -316,7 +441,11 @@
 
         <article class="film" data-vimeo="312691020">
           <button class="film-play" aria-label="Play film: Pasquale and Belinda, Sofitel Fiji Resort">
-            <img src="assets/img/film/sofitel-pasquale-belinda.jpg" width="960" height="540" alt="" loading="lazy">
+            <picture>
+              <source type="image/avif" srcset="assets/img/film/sofitel-pasquale-belinda-480.avif 480w, assets/img/film/sofitel-pasquale-belinda-800.avif 800w" sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw">
+              <source type="image/webp" srcset="assets/img/film/sofitel-pasquale-belinda-480.webp 480w, assets/img/film/sofitel-pasquale-belinda-800.webp 800w" sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw">
+              <img src="assets/img/film/sofitel-pasquale-belinda-800.jpg" width="800" height="450" alt="" loading="lazy" decoding="async">
+            </picture>
             <span class="film-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5Z"/></svg></span>
           </button>
           <h3>Pasquale &amp; Belinda</h3>
@@ -325,7 +454,11 @@
 
         <article class="film" data-vimeo="375962331">
           <button class="film-play" aria-label="Play film: Ashleigh and Douglas, Sofitel Fiji Resort">
-            <img src="assets/img/film/sofitel-ashleigh-douglas.jpg" width="960" height="540" alt="" loading="lazy">
+            <picture>
+              <source type="image/avif" srcset="assets/img/film/sofitel-ashleigh-douglas-480.avif 480w, assets/img/film/sofitel-ashleigh-douglas-800.avif 800w" sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw">
+              <source type="image/webp" srcset="assets/img/film/sofitel-ashleigh-douglas-480.webp 480w, assets/img/film/sofitel-ashleigh-douglas-800.webp 800w" sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw">
+              <img src="assets/img/film/sofitel-ashleigh-douglas-800.jpg" width="800" height="450" alt="" loading="lazy" decoding="async">
+            </picture>
             <span class="film-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5Z"/></svg></span>
           </button>
           <h3>Ashleigh &amp; Douglas</h3>
@@ -334,7 +467,11 @@
 
         <article class="film" data-vimeo="775379914">
           <button class="film-play" aria-label="Play film: Rodney and Corrina, Sheraton Fiji Resort">
-            <img src="assets/img/film/sheraton-rodney-corrina.jpg" width="960" height="540" alt="" loading="lazy">
+            <picture>
+              <source type="image/avif" srcset="assets/img/film/sheraton-rodney-corrina-480.avif 480w, assets/img/film/sheraton-rodney-corrina-800.avif 800w" sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw">
+              <source type="image/webp" srcset="assets/img/film/sheraton-rodney-corrina-480.webp 480w, assets/img/film/sheraton-rodney-corrina-800.webp 800w" sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw">
+              <img src="assets/img/film/sheraton-rodney-corrina-800.jpg" width="800" height="450" alt="" loading="lazy" decoding="async">
+            </picture>
             <span class="film-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5Z"/></svg></span>
           </button>
           <h3>Rodney &amp; Corrina</h3>
@@ -417,11 +554,11 @@
 
       <form class="enquire-form" action="#" method="post" novalidate>
         <div class="f-row">
-          <p class="field"><input id="f-name" type="text" name="your-name" maxlength="400" required placeholder=" "><label for="f-name">Your name</label></p>
-          <p class="field"><input id="f-email" type="email" name="your-email" maxlength="400" required placeholder=" "><label for="f-email">E-mail</label></p>
+          <p class="field"><input id="f-name" type="text" name="your-name" maxlength="400" required placeholder=" " autocomplete="name"><label for="f-name">Your name</label></p>
+          <p class="field"><input id="f-email" type="email" name="your-email" maxlength="400" required placeholder=" " autocomplete="email"><label for="f-email">E-mail</label></p>
         </div>
         <div class="f-row">
-          <p class="field"><input id="f-tel" type="tel" name="your-tel" maxlength="400" required placeholder=" "><label for="f-tel">Phone number</label></p>
+          <p class="field"><input id="f-tel" type="tel" name="your-tel" maxlength="400" required placeholder=" " autocomplete="tel"><label for="f-tel">Phone number</label></p>
           <p class="field"><input id="f-loc" type="text" name="your-text1" maxlength="400" required placeholder=" "><label for="f-loc">Wedding or event location</label></p>
         </div>
         <p class="field"><input id="f-hear" type="text" name="your-text2" maxlength="400" required placeholder=" "><label for="f-hear">How did you hear about me?</label></p>
@@ -442,7 +579,7 @@
         <img src="assets/img/brand/logo.png" width="150" height="150" alt="" aria-hidden="true">
         <span class="wordmark-text"><strong>Videoticz</strong><em>Fiji &middot; Weddings</em></span>
       </a>
-      <p>Wedding photography, cinematography and DJ services across the Fiji Islands. Accredited AIPP professional photographer and video producer.</p>
+      <p>Wedding photography, film and DJ services across the Fiji Islands. Accredited AIPP professional photographer and video producer.</p>
       <ul class="social">
         <li><a href="https://www.facebook.com/fiji.wedding.photography.videography" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.1h-3.1V8.9c0-.9.25-1.5 1.55-1.5H16.7V4.62A22 22 0 0 0 14.28 4.5c-2.4 0-4.03 1.46-4.03 4.15v2.25H7.5V14h2.75v8Z"/></svg></a></li>
         <li><a href="https://www.instagram.com/fiji_wedding_photography/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23a3.7 3.7 0 0 1-.9 1.38 3.7 3.7 0 0 1-1.38.9c-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2Zm0 3.15A6.65 6.65 0 1 0 18.65 12 6.65 6.65 0 0 0 12 5.35Zm0 10.97A4.32 4.32 0 1 1 16.32 12 4.32 4.32 0 0 1 12 16.32Zm8.46-11.24a1.55 1.55 0 1 1-1.55-1.55 1.55 1.55 0 0 1 1.55 1.55Z"/></svg></a></li>
@@ -455,11 +592,12 @@
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="photography/">Photography</a></li>
+        <li><a href="cinematography/">Film</a></li>
         <li><a href="elopements-fiji/">Elopements</a></li>
-        <li><a href="cinematography/">Cinematography</a></li>
         <li><a href="family-couple-photographer-fiji/">Family Photography</a></li>
+        <li><a href="dj-services/">DJ Services</a></li>
         <li><a href="about-us/">About Us</a></li>
-        <li><a href="contact/">Contact</a></li>
+        <li><a href="contact/">Contact Us</a></li>
       </ul>
     </nav>
 
@@ -478,8 +616,8 @@
 
     <div class="footer-col">
       <h2>Location</h2>
-      <div class="map">
-        <iframe src="https://maps.google.com/maps?q=Coral%20Coast%2C%20Sigatoka%2C%20Fiji&amp;t=m&amp;z=10&amp;output=embed&amp;iwloc=near" title="Coral Coast, Sigatoka, Fiji" loading="lazy"></iframe>
+      <div class="map" id="mapHolder" data-src="https://maps.google.com/maps?q=Coral%20Coast%2C%20Sigatoka%2C%20Fiji&amp;t=m&amp;z=10&amp;output=embed&amp;iwloc=near">
+        <button class="map-load" type="button">Load map <span aria-hidden="true">&#8594;</span></button>
       </div>
       <p class="map-note">Coral Coast, Sigatoka &mdash; travelling island-wide.</p>
     </div>
@@ -498,7 +636,11 @@
   <button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
   <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.4 4.6 7 13l8.4 8.4 1.4-1.4L9.8 13l7-7Z"/></svg></button>
   <figure class="lb-figure">
-    <img id="lbImg" src="" alt="">
+    <picture>
+      <source id="lbAvif" type="image/avif" srcset="">
+      <source id="lbWebp" type="image/webp" srcset="">
+      <img id="lbImg" src="" alt="">
+    </picture>
     <figcaption id="lbCap"></figcaption>
   </figure>
   <button class="lb-nav lb-next" id="lbNext" aria-label="Next photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.6 4.6 7.2 6l7 7-7 7 1.4 1.4L17 13Z"/></svg></button>
