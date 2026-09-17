@@ -1,60 +1,65 @@
 # fijiweddingvideoticz — static home page
 
-A hand-built static HTML/CSS/JS rebuild of the home page of
-[fijiweddingvideoticz.com](https://fijiweddingvideoticz.com/), which today runs on
-WordPress (Solene theme + Elementor, Essential Addons, Contact Form 7, Slider Revolution).
+A dependency-free static home page for
+[fijiweddingvideoticz.com](https://fijiweddingvideoticz.com/), built to replace the
+WordPress/Elementor original with a photography-led editorial layout.
 
-The goal is the same page — same content, sections, order and look — with no WordPress,
-no plugins and no build step: three files and a folder of images.
+No framework, no build step, no plugins: one HTML file, one stylesheet, one script.
 
 ## Files
 
 ```
-index.html            the whole page
-assets/css/style.css  layout, type and responsive rules
-assets/js/main.js     mobile nav, sticky header, testimonial slider, scroll reveal, form handler
-assets/img/           logo, accreditation badge, directory badges, 9 venue thumbs, hero photo
+index.html               the page
+assets/css/style.css     design system, layout, responsive rules
+assets/js/main.js        menu, lightbox, film loader, slider, reveals, form
+assets/img/brand/        logo, AIPP accreditation, directory badges
+assets/img/gallery/      venue photography at 768 / 1024 / 1536 for srcset
+assets/img/film/         Vimeo poster frames
 ```
 
 ## Running it
-
-Open `index.html` directly, or serve the folder:
 
 ```bash
 python3 -m http.server 8000   # then visit http://localhost:8000
 ```
 
-## Sections (in source order, matching the live page)
+## The design
 
-1. Sticky header — logo + AIPP badge, 11-item menu, social icons, hamburger below 880px
-2. Hero — `Fiji Wedding Photographer | DJ Services` over a full-bleed photo
-3. Intro copy — three paragraphs with the Bula Bride / reviews links
-4. `Fiji Wedding Venues | Photography` — 9 venue cards (3×3, zoom on hover)
-5. `Fiji Wedding Films & Highlight Videos` — 9 Vimeo embeds (3×3)
-6. `Testimonials` — Bula Bride, Easy Weddings and Married by Mandi badges
-7. `Get in Touch` — 6-field contact form
-8. Review slider — 5 client testimonials, autoplay, dots, swipe
-9. Info strip — location, email, phone
-10. Footer — contact info, quick links, business hours, Google map, copyright
+Warm porcelain and bronze palette, Cormorant Garamond for display type against Jost for
+interface type, and full-bleed photography carrying each section.
+
+- **Hero** — full-viewport reception frame with a slow pan, layered scrim so the type stays
+  legible, and a stat row (years, venues, reply time)
+- **Masthead** — transparent over the hero, frosted and solid once you scroll past it; the
+  eleven-page menu lives in a full-screen overlay so the bar stays quiet
+- **Story** — asymmetric split, the studio's three paragraphs, and a service index
+- **Venues** — a nine-tile mosaic with wide and tall spans; tiles link through to each venue
+  page, and a zoom button opens a keyboard-navigable lightbox
+- **Films** — poster-first grid; the Vimeo player is injected only when you press play, so
+  nine embeds cost nothing on load
+- **Testimonials** — dark section, one quote at a time, arrows/dots/swipe, auto-height
+- **Enquire** — split layout with floating-label fields on a raised card
+- **Footer** — brand note, quick links, opening hours, map
+
+Dark mode ships via `prefers-color-scheme`, motion is disabled under
+`prefers-reduced-motion`, and breakpoints land at 1100px (nav collapse), 900px, 780px
+and 600px.
+
+## Performance notes
+
+- Images are served from a `srcset` at three widths; the hero is preloaded with
+  `fetchpriority="high"`, everything else is lazy
+- Films load zero third-party bytes until clicked
+- No jQuery, Elementor, Slider Revolution, analytics or pixel runtimes
+- Icons are inline SVG; only the two font families are fetched externally
 
 ## Differences from the live site
 
-- **Contact form has no backend.** The live form posts to Contact Form 7. Here, submit runs
-  client-side validation and shows the email/phone instead. Point the `action` at your own
-  endpoint (or a PHP/Next.js handler) to make it live.
-- **Nav and venue links are relative paths** (`photography/`, `sofitel-fiji-weddings/`, …)
-  that mirror the live URL structure, so they resolve once sibling pages exist. Only the home
-  page is in this repo.
-- **Videos embed the Vimeo player directly** rather than the Essential Addons "sticky video"
-  widget; the same nine video IDs are used.
-- **Third-party scripts are not carried over** — Google Analytics/MonsterInsights, Site Kit,
-  Facebook Pixel, jQuery, Elementor and Slider Revolution runtimes.
-- **Icons are inline SVG** instead of Font Awesome, and fonts load from Google Fonts
-  (Cormorant Garamond for display, Roboto for body) as on the live site.
-
-## Notes
-
-- Images were pulled from the live site's media library; `assets/img/hero.jpg` is the full
-  2048×1536 original (~3 MB) and is worth resizing/converting to WebP before production.
-- Layout is responsive at 1024px, 880px (nav collapse) and 767px breakpoints, and honours
-  `prefers-reduced-motion`.
+- **The form has no backend.** It validates client-side and shows the studio's email and
+  phone instead. Point `action` at your own handler to make it live.
+- **Nav and venue links are relative paths** mirroring the live URL structure
+  (`photography/`, `sofitel-fiji-weddings/`, …). Only the home page lives in this repo, so
+  they resolve once the sibling pages exist.
+- **Film titles and posters** come from the studio's own Vimeo channel metadata; the
+  original page showed unlabelled players.
+- **`LocalBusiness` structured data** replaces the WordPress-generated JSON-LD.
